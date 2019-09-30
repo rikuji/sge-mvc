@@ -14,5 +14,6 @@ namespace SGE.Models
         }
 
         public DbSet<TipoUsuario> TipoUsuario { get; set; }
+        public DbSet<Professor> Professores { get; set; }
     }
 }
