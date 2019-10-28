@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SGE.Models;
 
 namespace SGE.Migrations
 {
     [DbContext(typeof(SGEContext))]
-    partial class SGEContextModelSnapshot : ModelSnapshot
+    [Migration("20191028105236_Turma-Responsavel-EstadoCivil")]
+    partial class TurmaResponsavelEstadoCivil
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

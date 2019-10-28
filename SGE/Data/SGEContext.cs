@@ -17,5 +17,9 @@ namespace SGE.Models
         public DbSet<Professor> Professores { get; set; }
         public DbSet<AnoDisciplina> AnoDisciplina { get; set; }
         public DbSet<Disciplina> Disciplina { get; set; }
+        public DbSet<EstadoCivil> EstadoCivil { get; set; }
+        public DbSet<Responsavel> Responsavel { get; set; }
+        public DbSet<Turma> Turma { get; set; }
+        
     }
 }
