@@ -13,13 +13,20 @@ namespace SGE.Models
         {
         }
 
-        public DbSet<TipoUsuario> TipoUsuario { get; set; }
-        public DbSet<Professor> Professores { get; set; }
+        public DbSet<Aluno> Aluno { get; set; }
+        public DbSet<AlunoResponsavel> AlunoResponsavel { get; set; }
         public DbSet<AnoDisciplina> AnoDisciplina { get; set; }
+        public DbSet<CargoSecretaria> CargoSecretaria { get; set; }
         public DbSet<Disciplina> Disciplina { get; set; }
         public DbSet<EstadoCivil> EstadoCivil { get; set; }
+        public DbSet<Professor> Professores { get; set; }
         public DbSet<Responsavel> Responsavel { get; set; }
+        public DbSet<TipoUsuario> TipoUsuario { get; set; }
         public DbSet<Turma> Turma { get; set; }
+        public DbSet<TurmaDisciplina> TurmaDisciplina { get; set; }
+        public DbSet<TurmaProfessor> TurmaProfessor { get; set; }
+        public DbSet<UserSecretaria> UserSecretaria { get; set; }
+        
         
     }
 }
