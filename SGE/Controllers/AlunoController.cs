@@ -48,8 +48,9 @@ namespace SGE.Controllers
         // GET: Alunos/Create
         public IActionResult Create()
         {
-            ViewData["ResponsavelId"] = new SelectList(_context.Responsavel, "Id", "Id");
-            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "Id", "Id");
+            ViewData["TipoUsuarioId"] = _context.TipoUsuario.Select(x => new SelectListItem { Text = x.Perfil });
+            ViewData["ResponsavelId"] = new SelectList(_context.Responsavel, "Id", "Nome");
+
             return View();
         }
 
@@ -66,8 +67,10 @@ namespace SGE.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ResponsavelId"] = new SelectList(_context.Responsavel, "Id", "Id", aluno.ResponsavelId);
-            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "Id", "Id", aluno.TipoUsuarioId);
+
+            ViewData["TipoUsuarioId"] = _context.TipoUsuario.Select(x => new SelectListItem { Text = x.Perfil });
+            ViewData["ResponsavelId"] = new SelectList(_context.Responsavel, "Id", "Nome");
+
             return View(aluno);
         }
 
@@ -84,8 +87,10 @@ namespace SGE.Controllers
             {
                 return NotFound();
             }
-            ViewData["ResponsavelId"] = new SelectList(_context.Responsavel, "Id", "Id", aluno.ResponsavelId);
-            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "Id", "Id", aluno.TipoUsuarioId);
+
+            ViewData["TipoUsuarioId"] = _context.TipoUsuario.Select(x => new SelectListItem { Text = x.Perfil });
+            ViewData["ResponsavelId"] = new SelectList(_context.Responsavel, "Id", "Nome");
+
             return View(aluno);
         }
 
@@ -121,8 +126,10 @@ namespace SGE.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ResponsavelId"] = new SelectList(_context.Responsavel, "Id", "Id", aluno.ResponsavelId);
-            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "Id", "Id", aluno.TipoUsuarioId);
+
+            ViewData["TipoUsuarioId"] = _context.TipoUsuario.Select(x => new SelectListItem { Text = x.Perfil });
+            ViewData["ResponsavelId"] = new SelectList(_context.Responsavel, "Id", "Nome");
+
             return View(aluno);
         }
 

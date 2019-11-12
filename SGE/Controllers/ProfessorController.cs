@@ -47,7 +47,24 @@ namespace SGE.Controllers
         // GET: Professor/Create
         public IActionResult Create()
         {
-            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "Id", "Id");
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "Id", "Perfil");
+
+            ViewData["Sexo"] = new List<SelectListItem>
+            {
+                new SelectListItem {Text="Selecione", Value = ""},
+                new SelectListItem {Text="Masculino", Value = "Masculino"},
+                new SelectListItem {Text="Feminino", Value = "Feminino"},
+            };
+
+            ViewData["Turno"] = new List<SelectListItem>
+            {
+                new SelectListItem {Text="Selecione", Value = ""},
+                new SelectListItem {Text="Matutino", Value = "Matutino"},
+                new SelectListItem {Text="Vespertino", Value = "Vespertino"},
+                new SelectListItem {Text="Noturno", Value = "Noturno"},
+            };
+
+
             return View();
         }
 
@@ -64,7 +81,7 @@ namespace SGE.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "Id", "Id", professor.TipoUsuarioId);
+
             return View(professor);
         }
 
@@ -81,7 +98,22 @@ namespace SGE.Controllers
             {
                 return NotFound();
             }
-            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "Id", "Id", professor.TipoUsuarioId);
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "Id", "Perfil");
+            ViewData["Sexo"] = new List<SelectListItem>
+            {
+                new SelectListItem {Text="Selecione", Value = ""},
+                new SelectListItem {Text="Masculino", Value = "Masculino"},
+                new SelectListItem {Text="Feminino", Value = "Feminino"},
+            };
+
+            ViewData["Turno"] = new List<SelectListItem>
+            {
+                new SelectListItem {Text="Selecione", Value = ""},
+                new SelectListItem {Text="Matutino", Value = "Matutino"},
+                new SelectListItem {Text="Vespertino", Value = "Vespertino"},
+                new SelectListItem {Text="Noturno", Value = "Noturno"},
+            };
+
             return View(professor);
         }
 
@@ -118,6 +150,19 @@ namespace SGE.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "Id", "Id", professor.TipoUsuarioId);
+            ViewData["Sexo"] = new List<SelectListItem>
+            {
+                new SelectListItem {Text="Selecione", Value = ""},
+                new SelectListItem {Text="Masculino", Value = "Masculino"},
+                new SelectListItem {Text="Feminino", Value = "Feminino"},
+            };
+            ViewData["Turno"] = new List<SelectListItem>
+            {
+                new SelectListItem {Text="Selecione", Value = ""},
+                new SelectListItem {Text="Matutino", Value = "Matutino"},
+                new SelectListItem {Text="Vespertino", Value = "Vespertino"},
+                new SelectListItem {Text="Noturno", Value = "Noturno"},
+            };
             return View(professor);
         }
 

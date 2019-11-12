@@ -49,7 +49,7 @@ namespace SGE.Controllers
         public IActionResult Create()
         {
             ViewData["AlunoId"] = new SelectList(_context.Aluno, "Id", "Id");
-            ViewData["ResponsavelId"] = new SelectList(_context.Responsavel, "Id", "Id");
+            ViewData["ResponsavelId"] = new SelectList(_context.Responsavel, "Id", "Nome");
             return View();
         }
 

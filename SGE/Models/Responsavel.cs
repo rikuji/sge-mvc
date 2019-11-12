@@ -19,6 +19,8 @@ namespace SGE.Models
         public string Celular { get; set; }
         [StringLength(15)]
         public string TelefoneFixo { get; set; }
+        [DataType(DataType.Text)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         public DateTime DateNascimento { get; set; }
         [StringLength(15)]
         public string Sexo { get; set; }
