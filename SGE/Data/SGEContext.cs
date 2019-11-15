@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace SGE.Models
 {
-    public class SGEContext : DbContext
+    public class SGEContext : IdentityDbContext<IdentityUser> 
     {
         public SGEContext(DbContextOptions<SGEContext> options)
             : base(options)

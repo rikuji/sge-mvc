@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using SGE.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace SGE
 {
@@ -33,7 +34,10 @@ namespace SGE
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<SGEContext>()
+                .AddDefaultTokenProviders();
+                    
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<SGEContext>(options =>
@@ -58,6 +62,7 @@ namespace SGE
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
